@@ -1,0 +1,17 @@
+<div class="container title">
+    <div *ngIf="!registerMode" class="center top">
+        <h1>JWT Demo</h1>
+        <p>Create a new user here.</p>
+        <div class="text-center">
+            <button (click)="registerToggle()" class="btn btn-primary btn-lg">Register</button>
+        </div>
+    </div>
+
+    <div *ngIf="registerMode"class="container top">
+        <div class="row justify-content-center">
+            <div class="col-4">
+               <app-register-form (cancelRegistration)="cancelRegisterMode($event)"></app-register-form>
+            </div>
+        </div>
+    </div>
+</div>
