@@ -1,13 +1,23 @@
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
     <div class="container">
-        <a class="navbar-brand" href="#">JWT demo</a>
-        <ul class="navbar-nav mr-auto" *ngIf="accountService.currentUser$ | async">
+        <a class="navbar-brand" routerLink='/'>JWT demo</a>
+        <ul class="navbar-nav mr-auto">
             <li class="nav-item">
                 <a class="nav-link" (click)="logout()">Logout</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled" href="#">Disabled</a>
+                <a class="nav-link" routerLink ='/samplePage' routerLinkActive = 'active'>Sample Page</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink ='/anotherSamplePage' routerLinkActive = 'active'>Another Sample Page</a>
+            </li>
+            <!--hidden links for unauthenticated users-->
+            <ng-container *ngIf="accountService.currentUser$ | async">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink ='/users' routerLinkActive = 'active'>Users</a>
+                </li>
+            </ng-container>
+            
         </ul>
 
         <form *ngIf="(accountService.currentUser$ | async) === null" #loginForm="ngForm" 
