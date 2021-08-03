@@ -9,7 +9,7 @@ import { AccountService } from '../_services/account.service';
 })
 export class RegisterFormComponent implements OnInit {
   model: any = {};
-  error: string;
+  errors: string[] = [];
   @Output() cancelRegistration = new EventEmitter();
 
   constructor(private accountService: AccountService, private toastr: ToastrService) { }
@@ -22,7 +22,7 @@ export class RegisterFormComponent implements OnInit {
       this.cancel();
     }, error => {
       console.log(error);
-      this.toastr.error(error.error);
+      this.errors = error;
     });
   }
 

@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="text-center">
+        <h1> Internal Server Error</h1>
+        <h4>refreshing the page will make the error disappear</h4>
+    </div>
+    <ng-container *ngIf="error">
+        <p>Here's the stack trace for this 500 error:</p>
+        <code>Error: {{error.message}}  </code>
+    </ng-container>
+    <div class="text-center">
+        <button class="btn btn-outline-primary mt-5" routerLink=''>Return Home</button>
+    </div>
+</div>

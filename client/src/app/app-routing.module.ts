@@ -1,8 +1,9 @@
+import { ServerErrorComponent } from './errors/server-error/server-error/server-error.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AnotherSamplePageComponent } from './another-sample-page/another-sample-page.component';
+import { NotFoundComponent } from './errors/not-found/not-found.component';
+import { TestErrorsComponent } from './errors/test-errors/test-errors.component';
 import { RegisterComponent } from './register/register.component';
-import { SamplePageComponent } from './sample-page/sample-page.component';
 import { AllUsersComponent } from './users/all-users/all-users.component';
 import { UserDetailsComponent } from './users/user-details/user-details.component';
 import { AuthGuard } from './_guards/auth.guard';
@@ -18,9 +19,10 @@ const routes: Routes = [
       { path: 'users/:id', component: UserDetailsComponent},
     ]
   },
-  { path: 'samplePage', component: SamplePageComponent}, 
-  { path: 'anotherSamplePage', component: AnotherSamplePageComponent},
-  { path: '**', component: RegisterComponent, pathMatch: 'full' }
+  { path: 'errorHandling', component: TestErrorsComponent },
+  { path: 'not-found', component: NotFoundComponent },
+  { path:'server-error', component:ServerErrorComponent },
+  { path: '**', component: NotFoundComponent, pathMatch: 'full' }
 
 ];
 

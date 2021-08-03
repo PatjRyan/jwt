@@ -1,1 +1,6 @@
-<p>all-users works!</p>
+<div class="container">
+    <h4>List of all users, jwt were required to retrieve!</h4>
+<ul>
+    <li *ngFor="let user of users">{{user.id}} {{user.userName}}</li>
+</ul>
+</div>

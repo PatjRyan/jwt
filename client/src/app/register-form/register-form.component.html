@@ -9,9 +9,15 @@
         <input type="password" class="form-control" name="username" 
         [(ngModel)]="model.password" placeholder="Password"/>
     </div>
-    <div *ngIf="error" class="alert alert-danger"><p>{{error.message}}</p></div>
+    <div class="row mt-4" *ngIf = "errors.length > 0" >
+        <ul class="text-danger">
+            <li *ngFor="let error of errors">
+                {{error}}
+            </li>
+        </ul>
+    </div>
     <div class="form-group text-center">
-        <button class="btn btn-success mr-2" type="submit" (click)="register()"> Register</button>
+        <button class="btn btn-primary mr-2" type="submit" (click)="register()"> Create new User</button>
         <button class="btn btn-secondary mr-2" (click)="cancel()" type="button"> Cancel</button>
     </div>
 </form>
